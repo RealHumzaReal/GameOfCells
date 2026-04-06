@@ -31,4 +31,23 @@ def update(screen, cells, size, with_progress=False):
 					color = COLOR_ALIVE_NEXT
 
 		pygame.draw.rect(screen, color, (col * size, row * size, size - 1, size - 1)) #Draws cells onto the chart (Visual aspect)
-	return_updated_cells
+	return updated_cells
+def main():
+	pygame.init()
+	screen = pygame.display.set_mode((800, 600))
+
+	cells = np.zeros((60, 80))
+	screen.fill(COLOR_GRID)
+	update(screen, cells, 10)
+
+	pygame.display.flip()
+	pygame.display.update()
+
+	running = False
+
+	while True:
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				pygame.quit()
+				return
+			elif event.type == pygame.KEYDOWN
