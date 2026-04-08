@@ -47,15 +47,15 @@ def main(): #main function of code
 
 	while True: #Loop that checks when the player hits one of the following keys.
 		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
+			if event.type == pygame.QUIT: #allows player to quit game
 				pygame.quit()
 				return
 			elif event.type == pygame.KEYDOWN:
-				if event.key == pygame.K_SPACE:
+				if event.key == pygame.K_SPACE: #pauses game when player hits space, or unpauses it
 					running = not running
 					update(screen, cells, 10)
 					pygame.display.update()
-			if pygame.mouse.get_pressed()[0]:
+			if pygame.mouse.get_pressed()[0]: #creates cells when player clicks
 				pos = pygame.mouse.get_pos()
 				cells[pos[1] // 10, pos[0] // 10] = 1
 				update(screen, cells, 10)
